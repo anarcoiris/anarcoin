@@ -77,7 +77,7 @@ bool fLiteMode = false;
 bool fEnableInstantX = true;
 int nInstantXDepth = 10;
 int nDarksendRounds = 2;
-int nAnonymizeIgnitionAmount = 1000;
+int nAnonymizeAnarcoinAmount = 1000;
 int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
@@ -1041,7 +1041,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "Ignition";
+    const char* pszModule = "Anarcoin";
 #endif
     if (pex)
         return strprintf(
@@ -1071,13 +1071,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Ignition
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Ignition
-    // Mac: ~/Library/Application Support/Ignition
-    // Unix: ~/.Ignition
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Anarcoin
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Anarcoin
+    // Mac: ~/Library/Application Support/Anarcoin
+    // Unix: ~/.Anarcoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Ignition";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Anarcoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -1089,10 +1089,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     fs::create_directory(pathRet);
-    return pathRet / "Ignition";
+    return pathRet / "Anarcoin";
 #else
     // Unix
-    return pathRet / ".Ignition";
+    return pathRet / ".Anarcoin";
 #endif
 #endif
 }
@@ -1141,7 +1141,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "Ignition.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "Anarcoin.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1186,7 +1186,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "Ignitiond.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "Anarcoind.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
