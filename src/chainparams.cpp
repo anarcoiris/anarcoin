@@ -69,7 +69,7 @@ public:
 		// Build the genesis block. Note that the output of the genesis coinbase cannot
 		// be spent as it did not originally exist in the database.
 
-		const char* pszTimestamp = "Here 18 Dec 2017 we start the Ignition";
+		const char* pszTimestamp = "Here 18 Dec 2017 we start the Anarcoin";
 		std::vector<CTxIn> vin;
 		vin.resize(1);
 		vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
