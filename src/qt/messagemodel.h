@@ -67,7 +67,7 @@ struct MessageTableEntry
     }
 };
 
-/** Interface to Ignition Secure Messaging from Qt view code. */
+/** Interface to Anarcoin Secure Messaging from Qt view code. */
 class MessageModel : public QAbstractTableModel
 {
     Q_OBJECT
