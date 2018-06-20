@@ -362,6 +362,6 @@ void DarksendPage::updateDarksendProgress()
     ui->darksendProgress->setToolTip(strToolPip);
 
     float denomBalance = this->walletModel->getDenominatedBalance() / COIN;
-    QString strDenomBalance = QString().setNum(denomBalance, 'g', 4) + " IC";
+    QString strDenomBalance = QString().setNum(denomBalance, 'g', 4) + " AxC";
     ui->denominatedBalanceValue->setText(strDenomBalance);
 }
