@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Add/Edit Ignition Node</string>
+   <string>Add/Edit Anarcoin Node</string>
   </property>
   <property name="modal">
    <bool>true</bool>
