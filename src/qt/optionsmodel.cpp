@@ -66,13 +66,13 @@ void OptionsModel::Init()
     if (!settings.contains("nDarksendRounds"))
         settings.setValue("nDarksendRounds", 2);
     nDarksendRounds = settings.value("nDarksendRounds").toLongLong();
-    if (!settings.contains("nAnonymizeIgnitionAmount"))
-        settings.setValue("nAnonymizeIgnitionAmount", 1000);
-    nAnonymizeIgnitionAmount = settings.value("nAnonymizeIgnitionAmount").toLongLong();
+    if (!settings.contains("nAnonymizeAnarcoinAmount"))
+        settings.setValue("nAnonymizeAnarcoinAmount", 1000);
+    nAnonymizeAnarcoinAmount = settings.value("nAnonymizeAnarcoinAmount").toLongLong();
     if (settings.contains("nDarksendRounds"))
         SoftSetArg("-darksendrounds", settings.value("nDarksendRounds").toString().toStdString());
-    if (settings.contains("nAnonymizeIgnitionAmount"))
-        SoftSetArg("-anonymizetraveamount", settings.value("nAnonymizeIgnitionAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeAnarcoinAmount"))
+        SoftSetArg("-anonymizetraveamount", settings.value("nAnonymizeAnarcoinAmount").toString().toStdString());
 
 
 
@@ -206,8 +206,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return fCoinControlFeatures;
         case DarksendRounds:
             return QVariant(nDarksendRounds);
-        case AnonymizeIgnitionAmount:
-            return QVariant(nAnonymizeIgnitionAmount);
+        case AnonymizeAnarcoinAmount:
+            return QVariant(nAnonymizeAnarcoinAmount);
         case UseBlackTheme:
             return QVariant(fUseBlackTheme);
         default:
@@ -318,10 +318,10 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             settings.setValue("nDarksendRounds", nDarksendRounds);
             emit darksendRoundsChanged(nDarksendRounds);
             break;
-        case AnonymizeIgnitionAmount:
-            nAnonymizeIgnitionAmount = value.toInt();
-            settings.setValue("nAnonymizeIgnitionAmount", nAnonymizeIgnitionAmount);
-            emit AnonymizeIgnitionAmountChanged(nAnonymizeIgnitionAmount);
+        case AnonymizeAnarcoinAmount:
+            nAnonymizeAnarcoinAmount = value.toInt();
+            settings.setValue("nAnonymizeAnarcoinAmount", nAnonymizeAnarcoinAmount);
+            emit AnonymizeAnarcoinAmountChanged(nAnonymizeAnarcoinAmount);
             break;
         default:
             break;
